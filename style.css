@@ -1,0 +1,248 @@
+/* ReDo — Tim Oder. Minimal, image-first. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Fraunces:ital,wght@0,500;1,500;1,600&display=swap');
+
+:root{
+  --ink:#111;
+  --paper:#fff;
+  --grey:#999;
+  --line:#eee;
+  --font: 'Inter', -apple-system, Helvetica, Arial, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font);
+  font-weight:300;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;width:100%;height:auto;}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px;}
+
+/* Header */
+header.site{
+  padding:30px 28px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;
+}
+.name{
+  font-size:14px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;white-space:nowrap;
+}
+nav.main{
+  display:flex;justify-content:flex-end;gap:24px;flex-wrap:wrap;
+}
+nav.main a{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);opacity:.55;
+  font-weight:400;
+}
+nav.main a:hover, nav.main a.active{opacity:1;}
+
+.nav-trigger{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);opacity:.55;
+  font-weight:400;font-family:var(--font);cursor:default;
+}
+.nav-item:hover .nav-trigger, .nav-item:focus-within .nav-trigger{opacity:1;}
+
+.nav-item{position:relative;display:flex;align-items:center;}
+.nav-item .dropdown{
+  position:absolute;top:100%;left:0;margin-top:0;padding:18px 18px 14px;
+  background:var(--paper);box-shadow:0 18px 30px -14px rgba(0,0,0,.18);
+  display:none;flex-direction:column;gap:10px;min-width:120px;
+  z-index:60;
+}
+.nav-item:hover .dropdown, .nav-item:focus-within .dropdown{display:flex;}
+.nav-item .dropdown a{opacity:.55;font-weight:400;}
+.nav-item .dropdown a:hover{opacity:1;}
+
+/* Home — scrollable order/chaos landing */
+.home-intro{max-width:640px;margin:0 auto;padding:20px 28px 70px;}
+.home-section{padding:80px 0;border-top:1px solid var(--line);background:var(--paper);}
+.home-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.home-grid .home-text{max-width:440px;}
+.home-eyebrow{font-family:var(--font-display);font-style:italic;font-size:19px;letter-spacing:.01em;text-transform:none;color:var(--ink);margin:0 0 18px;}
+blockquote.home-quote{
+  font-family:var(--font-display);font-size:19px;line-height:1.5;font-style:italic;font-weight:400;color:#333;
+  border-left:1px solid var(--line);padding-left:18px;margin:20px 0;
+}
+.home-note{font-size:13.5px;color:#666;margin:0 0 22px;}
+.home-link{font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:2px;}
+@media (max-width:800px){
+  .home-grid{grid-template-columns:1fr;gap:30px;}
+  .home-grid .home-text{max-width:none;}
+  .home-grid .home-img.order-2{order:2;}
+}
+
+/* Simple page intro line */
+.intro{
+  text-align:center;max-width:520px;margin:0 auto 60px;padding:0 28px;
+  font-size:13px;color:var(--grey);letter-spacing:.02em;
+}
+
+/* Category grouping (Geometry / Asemic / Material / Order & Chaos) */
+.category-block{padding:56px 0 0;border-top:1px solid var(--ink);}
+.category-block:first-child{padding-top:0;border-top:none;}
+.category-title{
+  font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);
+  margin:0 0 8px;
+}
+.category-note{font-size:12.5px;color:var(--grey);margin:0 0 30px;max-width:480px;}
+
+/* Series blocks — plain, no frames */
+.series-block{padding:0 0 92px;}
+.series-title{
+  text-align:left;font-family:var(--font-display);font-style:italic;font-size:26px;letter-spacing:0;text-transform:none;
+  color:var(--ink);font-weight:500;margin:0 0 24px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:32px 24px;
+}
+.grid > a{display:block;}
+.grid figure{margin:0;}
+.grid figcaption{
+  margin-top:10px;text-align:left;
+}
+.grid figcaption .cap-title{
+  display:block;font-size:12.5px;color:var(--ink);margin-bottom:2px;
+}
+.grid figcaption .cap-meta{
+  display:block;font-size:10.5px;letter-spacing:.04em;color:var(--grey);
+}
+
+/* Landing page */
+main.landing{max-width:720px;margin:0 auto;padding:20px 28px 100px;}
+.landing-intro{text-align:center;margin-bottom:70px;}
+.landing-intro p{font-size:14.5px;color:#444;max-width:440px;margin:0 auto;}
+.landing-block{margin-bottom:64px;}
+.landing-link{display:block;}
+.landing-thumbs{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:16px;
+}
+.landing-thumbs img{aspect-ratio:1/1;object-fit:cover;}
+.landing-label{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+  opacity:.7;text-align:center;margin-bottom:8px;
+}
+.landing-link:hover .landing-label{opacity:1;}
+.landing-text{text-align:center;}
+.landing-text p{font-size:13.5px;color:#666;max-width:420px;margin:0 auto;}
+
+/* Individual work page — product card */
+main.work-page{max-width:1100px;margin:0 auto;padding:10px 28px 100px;}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;}
+.work-grid figure{margin:0;}
+.work-title{
+  font-family:var(--font-display);font-style:italic;font-size:32px;font-weight:500;margin:0 0 18px;color:var(--ink);
+}
+.work-price{font-size:17px;color:#333;margin:0 0 30px;}
+.work-desc{font-size:14px;color:#444;margin:0 0 26px;max-width:420px;}
+.work-specs{list-style:none;padding:0;margin:0 0 34px;}
+.work-specs li{
+  font-size:13px;color:#555;padding:9px 0;border-top:1px solid var(--line);
+}
+.work-specs li:last-child{border-bottom:1px solid var(--line);}
+.work-cta{
+  display:inline-block;border:1px solid var(--ink);padding:13px 34px;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:40px;
+}
+.work-cta:hover{background:var(--ink);color:#fff;}
+.work-nav{
+  display:flex;gap:26px;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);
+  border-top:1px solid var(--line);padding-top:22px;
+}
+.work-nav a:hover{color:var(--ink);}
+@media (max-width:760px){
+  .work-grid{grid-template-columns:1fr;}
+}
+
+/* Text pages (about / club31 / book / contact) kept minimal */
+main.page{max-width:640px;margin:0 auto;padding:20px 28px 100px;}
+main.page h1{
+  font-family:var(--font-display);font-style:italic;font-size:34px;letter-spacing:0;text-transform:none;text-align:left;
+  font-weight:500;margin:0 0 48px;color:var(--ink);
+}
+main.page section{margin-bottom:56px;}
+main.page h2{
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 14px;
+}
+main.page p{font-size:14.5px;color:#333;margin:0 0 6px;font-weight:300;}
+
+.cv-list{list-style:none;padding:0;margin:0;}
+.cv-list li{font-size:13.5px;color:#333;padding:8px 0;border-top:1px solid var(--line);}
+.cv-list li .yr{color:var(--grey);margin-right:10px;}
+
+.qa-block{padding:26px 28px;margin:0 0 2px;}
+.qa-block:nth-child(odd){background:#fff;}
+.qa-block:nth-child(even){background:#f2f2f2;}
+.qa-q{font-size:14.5px;color:var(--ink);font-weight:400;margin:0 0 10px;}
+.qa-a{font-size:13.5px;color:#666;margin:0;}
+
+.plain-list{list-style:none;padding:0;margin:0;}
+.plain-list li{font-size:13.5px;color:#333;padding:6px 0;}
+
+/* Club 31 — theme list & cycle */
+.theme-list{list-style:none;padding:0;margin:0;}
+.theme-item{display:grid;grid-template-columns:30px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line);}
+.theme-item:last-child{border-bottom:1px solid var(--line);}
+.theme-item .n{font-size:11px;color:var(--grey);letter-spacing:.08em;}
+.theme-item .t{font-size:13.5px;color:var(--ink);margin:0 0 4px;}
+.theme-item .d{font-size:12.5px;color:#777;margin:0;}
+
+.cycle-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 40px;margin:0 0 10px;}
+.cycle-group{font-size:12.5px;color:#555;}
+.cycle-group .g{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-bottom:4px;}
+
+.step-list{list-style:none;padding:0;margin:0;counter-reset:step;}
+.step-list li{
+  display:grid;grid-template-columns:28px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);
+  font-size:13.5px;color:#333;
+}
+.step-list li:last-child{border-bottom:1px solid var(--line);}
+.step-list li::before{counter-increment:step;content:counter(step);font-size:11px;color:var(--grey);}
+.step-list b{font-weight:400;color:var(--ink);}
+.step-list span{display:block;font-size:12.5px;color:#777;margin-top:2px;}
+
+/* Contact form */
+.field{margin-bottom:24px;}
+.field label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-bottom:8px;}
+.field input,.field textarea{
+  width:100%;border:none;border-bottom:1px solid var(--line);padding:9px 0;
+  font-family:var(--font);font-size:14px;background:transparent;color:var(--ink);
+}
+.field input:focus,.field textarea:focus{outline:none;border-bottom-color:var(--ink);}
+.field textarea{resize:vertical;min-height:90px;}
+.submit{
+  border:1px solid var(--ink);background:none;padding:12px 30px;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;
+}
+.submit:hover{background:var(--ink);color:#fff;}
+
+/* Footer */
+footer{
+  text-align:center;padding:50px 28px 60px;
+  font-size:10.5px;letter-spacing:.06em;color:var(--grey);
+}
+footer a{opacity:.7;}
+footer a:hover{opacity:1;}
+footer .foot-nav{margin-bottom:16px;}
+footer .foot-nav a{margin:0 10px;text-transform:uppercase;letter-spacing:.12em;}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:600px){
+  nav.main{gap:16px;}
+  .grid{grid-template-columns:1fr;}
+}
